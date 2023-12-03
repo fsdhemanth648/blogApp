@@ -1,0 +1,29 @@
+.post {
+  @apply mb-10 flex gap-10 items-center;
+}
+.imgContainer {
+  @apply flex-1 h-80 relative;
+}
+.image {
+  @apply object-cover;
+}
+.textContainer {
+  @apply flex-1 flex flex-col gap-6;
+}
+.date {
+  color: gray;
+}
+.category {
+  color: crimson;
+  font-weight: 500;
+}
+.desc {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--textMedium);
+}
+.link {
+  border-bottom: 1px solid crimson;
+  width: max-content;
+  padding: 2px 0;
+}

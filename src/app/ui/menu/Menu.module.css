@@ -1,0 +1,13 @@
+.menu {
+  flex: 2;
+  margin-top: 40px;
+  /* background-color: black; */
+}
+.subTitle {
+  color: gray;
+  font-size: 16px;
+  font-weight: 400;
+}
+.title {
+  font-size: 28px;
+}

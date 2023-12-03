@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .h-500 {
+    height: 500px;
+  }
+}
+
+:root {
+  --bg: #ffffff;
+  --bgSoft: #f0f3fa;
+  --bgDark: #395886;
+  --bgDarkSoft: #628ecb;
+  --bgMedium: #8aaee0;
+  --bgMediumSoft: #b1c9ef;
+  --bgGray: #d5deef;
+
+  --text: #000000;
+  --textSoft: #f0f3fa;
+  --textDark: #395886;
+  --textDarkSoft: #628ecb;
+  --textMedium: #8aaee0;
+  --textMediumSoft: #b1c9ef;
+  --textGray: #d5deef;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.dark {
+  --bg: #395886;
+  --bgSoft: #8aaee0;
+  --bgGray: #f0f3fa;
+  --bgDark: #000000;
+  --text: #ffffff;
+  --textSoft: #d5deef;
+  --textGray: #f0f3fa;
+}
+
+.globalContainer {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+}

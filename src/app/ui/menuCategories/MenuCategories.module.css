@@ -1,0 +1,6 @@
+.categoryList {
+  @apply mt-4 mb-7 flex flex-wrap gap-4;
+}
+.categoryItem {
+  @apply px-5 py-4 rounded-lg text-sm capitalize;
+}

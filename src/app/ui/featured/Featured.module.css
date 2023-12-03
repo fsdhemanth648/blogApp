@@ -1,0 +1,31 @@
+.featured {
+  @apply mt-5 lg:mt-7 p-2;
+  /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
+}
+.title {
+  @apply sm:text-3xl md:text-4xl lg:text-6xl font-normal;
+}
+.post {
+  @apply mt-10 md:mt-14 flex md:items-center md:gap-12;
+}
+.imgContainer {
+  @apply md:flex-1 relative md:h-96;
+  /* height: 500px; */
+}
+.image {
+  @apply object-cover hidden md:block;
+}
+.textContainer {
+  @apply md:flex-1 flex flex-col gap-5;
+}
+.postTitle {
+  @apply sm:text-2xl lg:text-3xl;
+}
+.postDescription {
+  @apply md:text-xl lg:text-2xl font-light text-justify;
+  color: var(--textMedium);
+}
+.postButton {
+  @apply sm:px-3 sm:py-2 sm:rounded-sm px-5 py-4 border-none md:rounded-md w-max;
+  background-color: var(--bgDark);
+}

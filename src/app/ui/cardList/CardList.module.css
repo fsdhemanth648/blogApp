@@ -1,0 +1,7 @@
+.cardList {
+  flex: 4;
+  /* background-color: red; */
+}
+.title {
+  @apply my-12 text-2xl;
+}

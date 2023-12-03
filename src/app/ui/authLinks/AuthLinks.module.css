@@ -1,0 +1,13 @@
+.mobileMenu {
+  @apply w-5 h-4 flex flex-col justify-between cursor-pointer md:hidden;
+}
+.line {
+  @apply w-full;
+  height: 2px;
+  background-color: #000;
+}
+.responsiveMenu {
+  @apply absolute top-24 left-0 w-full flex flex-col items-center justify-center gap-12;
+  height: calc(100vh - 96px);
+  background-color: var(--bg);
+}

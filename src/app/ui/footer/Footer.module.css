@@ -1,0 +1,34 @@
+.footer {
+  @apply mt-10 py-5 flex justify-between;
+  /* color: var(--textGray); */
+}
+.info {
+  @apply flex-1 flex flex-col gap-3;
+}
+.logo {
+  @apply flex items-center gap-2;
+}
+.logoText {
+  @apply text-2xl;
+}
+.desc {
+  @apply font-light;
+}
+.icons {
+  @apply mt-2 flex gap-2;
+}
+.links {
+  flex: 1;
+  display: flex;
+  gap: 50px;
+  justify-content: space-evenly;
+}
+.list {
+  @apply flex flex-col gap-2 font-light;
+}
+.listTitle {
+  @apply font-medium;
+  border-bottom: 2px solid crimson;
+  width: max-content;
+  padding: 2px 0;
+}

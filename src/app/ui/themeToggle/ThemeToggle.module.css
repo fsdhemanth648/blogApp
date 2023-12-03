@@ -1,0 +1,8 @@
+.themeToggle {
+  @apply w-12 h-6 rounded-full cursor-pointer flex items-center justify-between px-1 relative;
+  background-color: var(--bgDark);
+}
+.ball {
+  @apply w-4 h-4 rounded-full absolute;
+  background-color: var(--bg);
+}
