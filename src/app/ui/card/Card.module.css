@@ -1,8 +1,8 @@
 .post {
-  @apply mb-10 flex gap-10 items-center;
+  @apply mb-5 mt-5 flex gap-10 items-center;
 }
 .imgContainer {
-  @apply flex-1 h-80 relative;
+  @apply hidden md:block flex-1 h-80 relative;
 }
 .image {
   @apply object-cover;

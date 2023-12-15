@@ -3,5 +3,5 @@
   /* background-color: red; */
 }
 .title {
-  @apply my-12 text-2xl;
+  @apply my-8 text-2xl md:my-10 md:text-3xl font-medium;
 }

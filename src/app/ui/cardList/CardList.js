@@ -10,7 +10,9 @@ function CardList() {
             <h1 className={styles.title}>Recent Posts</h1>
             <div className={styles.posts}>
                 <Card />
+                <hr />
                 <Card />
+                <hr />
                 <Card />
                 {/* <Card /> */}
             </div>
