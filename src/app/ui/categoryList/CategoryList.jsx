@@ -55,7 +55,7 @@ function CategoryList() {
                 {categories.map((category)=>{
                     return(
                         <Link className={styles.category} style={{backgroundColor: `${category.bgColor}`}} key={category.id} href={category.url}>
-                            <Image src={category.image} alt={category.name} width={32} height={32} className={styles.image}/>
+                            <Image src={category.image} alt={category.name} width={40} height={40} className={styles.image}/>
                             {category.name}
                         </Link>
                     )
