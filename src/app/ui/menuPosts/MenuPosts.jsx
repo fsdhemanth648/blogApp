@@ -22,6 +22,7 @@ function MenuPosts({displayImage}) {
             
         </div>
         </Link>
+        <hr/>
         <Link href="/" className={styles.item}>
         {displayImage && <div className={styles.imgContainer}>
            <Image src="/p1.jpeg" alt="" fill className={styles.image}/>
@@ -38,6 +39,7 @@ function MenuPosts({displayImage}) {
             
         </div>
         </Link>
+        <hr/>
         <Link href="/" className={styles.item}>
         {displayImage && <div className={styles.imgContainer}>
            <Image src="/p1.jpeg" alt="" fill className={styles.image}/>

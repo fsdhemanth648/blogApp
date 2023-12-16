@@ -1,5 +1,5 @@
 .footer {
-  @apply mt-10 py-5 flex justify-between;
+  @apply mt-10 py-5 flex flex-col md:flex-row justify-between;
   /* color: var(--textGray); */
 }
 .info {
@@ -15,13 +15,14 @@
   @apply font-light;
 }
 .icons {
-  @apply mt-2 flex gap-2;
+  @apply hidden mt-2 md:flex gap-2;
 }
 .links {
   flex: 1;
   display: flex;
   gap: 50px;
   justify-content: space-evenly;
+  margin-top: 20px;
 }
 .list {
   @apply flex flex-col gap-2 font-light;
