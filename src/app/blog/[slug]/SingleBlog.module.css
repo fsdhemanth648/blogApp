@@ -1,0 +1,48 @@
+.infoContainer {
+  @apply flex items-center md:items-start gap-10 mt-5 md:mt-10;
+}
+.textContainer {
+  @apply flex-1;
+}
+.blogTitle {
+  @apply text-3xl md:text-4xl lg:text-5xl font-normal;
+}
+.user {
+  @apply flex items-center gap-5 mt-3;
+}
+.userImageContainer {
+  @apply h-12 w-12 relative;
+}
+.image {
+  @apply rounded-full object-cover;
+}
+.userTextContainer {
+  @apply flex flex-col gap-1;
+  color: var(--textGray);
+}
+.userName {
+  @apply font-normal text-lg;
+}
+.imageContainer {
+  @apply hidden md:block flex-1 h-60 relative;
+}
+.userImage {
+  @apply object-cover;
+}
+.content {
+  @apply flex gap-10;
+}
+.post {
+  flex: 5;
+  margin-top: 40px;
+}
+.postDetails p {
+  font-size: 18px;
+  font-weight: 300px;
+  margin-bottom: 20px;
+}
+.post h1 {
+  font-size: 28px;
+  font-weight: 500px;
+  margin-bottom: 10px;
+}
