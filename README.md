@@ -32,7 +32,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 Login Page - /login
 Blogs Page - /blog
 Single Blog Page - /blog/id
-Write Page (Blog Writers) - write
+Write Page (Blog Writers) - /write
 
 ## Deploy on Vercel
 

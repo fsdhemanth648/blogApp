@@ -1,17 +1,29 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './WritePage.module.css'
-import Image from 'next/image'
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import dynamic from 'next/dynamic';
 import { GoPlusCircle } from "react-icons/go";
 import { BiLinkExternal } from "react-icons/bi";
 import { CiVideoOff } from "react-icons/ci";
 import { CiImageOn } from "react-icons/ci";
 
+const DynamicQuill = dynamic(() => import('@/app/ui/quillEditor/QuillEditor'), {
+  ssr: false // Ensure Quill is not loaded during SSR
+});
+
 function WritePage() {
     const [editorOptions, setEditorOptions] = useState(true);
-    const [editorValue, setEditorValue] = useState("")
+    
+
+    const quillRef = useRef(null);
+
+  useEffect(() => {
+    if (quillRef.current) {
+      // Access quill instance here if needed
+      const quill = quillRef.current.getEditor();
+      // Perform any necessary actions with Quill instance
+    }
+  }, []);
   return (
     <div className={styles.write}>
       <input type='text' className={styles.input} placeholder='Type title...' />
@@ -35,7 +47,9 @@ function WritePage() {
             )}
             <button className={styles.publish}>Publish</button>
         </div>
-        <ReactQuill theme='snow' className={styles.textArea} value={editorValue} onChange={setEditorValue} placeholder='Write your blog...'/>
+        {typeof window !=="undefined" && (
+          <DynamicQuill ref={quillRef} theme='snow' className={styles.textArea} value={editorValue} onChange={setEditorValue} placeholder='Write your blog...'/>
+        )}
       </div>
       
       <div className='flex justify-end mt-5 px-6'>
