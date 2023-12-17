@@ -14,16 +14,7 @@ const DynamicQuill = dynamic(() => import('@/app/ui/quillEditor/QuillEditor'), {
 function WritePage() {
     const [editorOptions, setEditorOptions] = useState(true);
     
-
-    const quillRef = useRef(null);
-
-  useEffect(() => {
-    if (quillRef.current) {
-      // Access quill instance here if needed
-      const quill = quillRef.current.getEditor();
-      // Perform any necessary actions with Quill instance
-    }
-  }, []);
+    
   return (
     <div className={styles.write}>
       <input type='text' className={styles.input} placeholder='Type title...' />
@@ -47,9 +38,9 @@ function WritePage() {
             )}
             <button className={styles.publish}>Publish</button>
         </div>
-        {typeof window !=="undefined" && (
-          <DynamicQuill ref={quillRef} theme='snow' className={styles.textArea} value={editorValue} onChange={setEditorValue} placeholder='Write your blog...'/>
-        )}
+        
+          <DynamicQuill  />
+       
       </div>
       
       <div className='flex justify-end mt-5 px-6'>
