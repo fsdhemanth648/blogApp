@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeContextProvider>
           <ThemeProvider>
-            <div className='globalContainer flex justify-center items-center'>
+            <div className='globalContainer'>
               <div className="container auto px-6" >
                 <Navbar />
                 {children}

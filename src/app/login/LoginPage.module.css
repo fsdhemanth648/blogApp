@@ -1,0 +1,27 @@
+.login {
+  @apply flex items-center justify-center mt-16;
+}
+.wrapper {
+  @apply flex flex-col gap-12 rounded-lg px-16 py-20 md:px-28 md:py-32;
+  background-color: var(--bgSoft);
+}
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.loginBtn:first-child {
+  background-color: #ff5555;
+}
+.loginBtn:nth-child(2) {
+  background-color: #111;
+}
+.loginBtn:nth-child(3) {
+  background-color: #087bea;
+}
