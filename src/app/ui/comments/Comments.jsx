@@ -21,7 +21,7 @@ const fetcher = async (url) =>{
 
 function Comments({postSlug}) {
     const {status} = useSession()
-    const {data, isLoading ,mutate} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+    const {data, isLoading ,mutate} = useSWR(`https://blog-app-fsdhemanth648.vercel.app/api/comments?postSlug=${postSlug}`, fetcher)
 
     const [comment, setComment] = useState("");
 

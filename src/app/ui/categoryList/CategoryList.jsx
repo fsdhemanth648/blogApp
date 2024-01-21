@@ -48,7 +48,7 @@ export const categories = [
 ]
 const getCategories = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/categories', {
+      const res = await fetch('https://blog-app-fsdhemanth648.vercel.app/api/categories', {
         cache: 'no-store',
       });
   

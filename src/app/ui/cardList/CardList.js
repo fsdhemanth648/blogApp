@@ -5,7 +5,7 @@ import Card from '../card/Card'
 
 const getPosts = async (page, cat) => {
     try {
-        const res = await fetch(`http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`, {
+        const res = await fetch(`https://blog-app-fsdhemanth648.vercel.app/api/posts?page=${page}&cat=${cat || ""}`, {
             cache: 'no-store',
         });
 
