@@ -16,11 +16,11 @@ function Card({post}) {
                 <span className={styles.date}>{post.createdAt.substring(0, 10)}&nbsp;-</span>
                 <span className={styles.category}>&nbsp;{post.catSlug}</span>
             </div>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`https://blog-app-fsdhemanth648.vercel.app/blog/${post.slug}`}>
                 <h1>{post.title}</h1>
             </Link>
             <p className={styles.desc}>{post.desc.substring(0, 60)}...</p>
-            <Link href={`/blog/${post.slug}`} className={styles.link}>Learn More</Link>
+            <Link href={`https://blog-app-fsdhemanth648.vercel.app/blog/${post.slug}`} className={styles.link}>Learn More</Link>
         </div>
     </div>
   )
