@@ -3,20 +3,23 @@
 import React, { useState } from 'react'
 import styles from "./AuthLinks.module.css"
 import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
 function AuthLinks() {
 
   const [openMenu, setOpenMenu] = useState(false)
 
-  const status = "authe"
+  const {status} = useSession();
   return (
     <>
-      {status === "auth" ? (
+      {status === "unauthenticated" ? (
         <Link href="/login" >Login</Link>
       ): (
       <>
         <Link href="/write" className='hidden md:block'>Write</Link>
         <span className='hidden md:block'>
-          <button>Logout</button>
+          <button
+            onClick={()=> signOut()}
+          >Logout</button>
         </span>
       </>
       )}

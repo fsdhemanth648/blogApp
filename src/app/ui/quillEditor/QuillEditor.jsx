@@ -5,8 +5,8 @@ import 'react-quill/dist/quill.snow.css';
 import styles from './QuillEditor.module.css'
 
 
-function QuillEditor() {
-
+function QuillEditor(props) {
+    const {value, setValue} = props;
     const [editorValue, setEditorValue] = useState("")
     const quillRef = useRef(null);
 
@@ -20,7 +20,7 @@ function QuillEditor() {
   return (
     <>
         {typeof window !== "undefined" && (
-            <ReactQuill ref={quillRef} theme='snow' className={styles.textArea} value={editorValue} onChange={setEditorValue} placeholder='Write your blog...'/>
+            <ReactQuill ref={quillRef} theme='snow' className={styles.textArea} value={value} onChange={setValue} placeholder='Write your blog...'/>
         )}
     </>
   )

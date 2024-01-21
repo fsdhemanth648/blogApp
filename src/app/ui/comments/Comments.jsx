@@ -1,17 +1,50 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import styles from './Comments.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-function Comments() {
-    const status = "authenticated"
+import useSWR from 'swr'
+import { useSession } from 'next-auth/react'
+
+const fetcher = async (url) =>{
+    const res = await fetch(url);
+
+    const data = await res.json();
+
+    if(!res.ok){
+        const error = new Error(data.message);
+        throw error;
+    }
+    return data;
+}
+
+function Comments({postSlug}) {
+    const {status} = useSession()
+    const {data, isLoading ,mutate} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+
+    const [comment, setComment] = useState("");
+
+    const handleComment = async () =>{
+        await fetch("/api/comments", {
+            method: "POST",
+            body: JSON.stringify({
+                desc: comment,
+                postSlug
+            })
+        })
+        setComment("")
+        mutate()
+    }
+
   return (
     <div className={styles.commntsContainer}>
         <h1 className={styles.title}>Comments</h1>
         {status === "authenticated" ? (
             <div className={styles.inputContainer}>
-                <textarea placeholder='Write a comment...' className={styles.input}/>
+                <textarea placeholder='Write a comment...' value={comment} className={styles.input} onChange={(e)=> setComment(e.target.value)}/>
                 <div className='flex justify-end mt-3'>
-                    <button className={styles.sendBtn}>Send</button>
+                    <button className={styles.sendBtn} onClick={handleComment}>Send</button>
                 </div>
             </div>
         ):(
@@ -20,30 +53,24 @@ function Comments() {
             </div>
         )}
         <div className={styles.comments}>
-            <div className={styles.comment}>
-                <div className={styles.user}>
-                    <Image src='/p1.jpeg' alt='' width={50} height={50} className={styles.userImage}/>
+            {isLoading ? "Loading" : data?.map((item)=>(
+                <div className={styles.comment} key={item.id}>
+                {item.user && (
+                    <div className={styles.user}>
+                    <Image src={item.user?.image} alt='img' width={50} height={50} className={styles.userImage}/>
                     <div className={styles.userInfo}>
-                        <span className={styles.userName}>Hemanth Babu</span>
-                        <span className={styles.date}>16-12-2023</span>
+                        <span className={styles.userName}>{item.user?.name}</span>
+                        <span className={styles.date}>{item?.createdAt.substring(0, 10)}</span>
                     </div>
                 </div>
+                )}
+                
                 <p className={styles.userComment}>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, eaque ullam culpa nesciunt amet voluptatibus? Assumenda corrupti fugit, perspiciatis facere nam rem harum vel, sint soluta natus dolore laborum doloremque?
+                    {item.desc}
                 </p>
             </div>
-            <div className={styles.comment}>
-                <div className={styles.user}>
-                    <Image src='/p1.jpeg' alt='' width={50} height={50} className={styles.userImage}/>
-                    <div className={styles.userInfo}>
-                        <span className={styles.userName}>Hemanth Babu</span>
-                        <span className={styles.date}>16-12-2023</span>
-                    </div>
-                </div>
-                <p className={styles.userComment}>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, eaque ullam culpa nesciunt amet voluptatibus? Assumenda corrupti fugit, perspiciatis facere nam rem harum vel, sint soluta natus dolore laborum doloremque?
-                </p>
-            </div>
+            ))}
+
         </div>
 
     </div>

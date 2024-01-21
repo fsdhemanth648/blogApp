@@ -46,17 +46,39 @@ export const categories = [
         url: "/blog?cat=coding"
     }
 ]
-function CategoryList() {
+const getCategories = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/categories', {
+        cache: 'no-store',
+      });
+  
+      if (!res.ok) {
+        console.log('Categories response took time.');
+        return [];
+      }
+  
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      return [];
+    }
+  };
+
+const CategoryList= async()=> {
+    const categoriesData =  await getCategories();
     
     return (
         <div className={styles.categoryList}>
             <h1 className={styles.title}>Popular Categories</h1>
             <div className={styles.categories}>
-                {categories.map((category)=>{
+                {categoriesData?.map((category)=>{
                     return(
-                        <Link className={styles.category} style={{backgroundColor: `${category.bgColor}`}} key={category.id} href={category.url}>
-                            <Image src={category.image} alt={category.name} width={40} height={40} className={styles.image}/>
-                            {category.name}
+                        <Link className={styles.category} style={{backgroundColor: `${category?.bgColor}`}} key={category.id} href={`/blog?cat=${category.slug}`}>
+                            {category.img && (
+                                <Image src={category.img} alt={category.name} width={40} height={40} className={styles.image}/>
+                            )}
+                            {category.title}
                         </Link>
                     )
                 })}

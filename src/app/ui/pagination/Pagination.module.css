@@ -5,3 +5,8 @@
   background-color: #c70039;
   @apply px-3 py-2 rounded-md w-24 border-none;
 }
+.btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  color: white;
+}

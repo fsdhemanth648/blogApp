@@ -1,5 +1,5 @@
 .title {
-  @apply text-white text-center px-2 py-3 text-2xl font-medium rounded-md;
+  @apply text-white text-center capitalize px-2 py-3 text-2xl font-medium rounded-md;
   background-color: crimson;
 }
 .content {
